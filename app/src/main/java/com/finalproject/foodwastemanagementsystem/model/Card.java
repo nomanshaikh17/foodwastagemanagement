@@ -1,4 +1,4 @@
-package com.finalproject.foodwastemanagementsystem;
+package com.finalproject.foodwastemanagementsystem.model;
 
 public class Card {
     private String line1;

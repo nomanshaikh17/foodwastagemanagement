@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import com.finalproject.foodwastemanagementsystem.model.GuestCard;
+
 public class GuestList extends AppCompatActivity {
     private static final String TAG = "GuestListActivity";
     private CardGuestArrayAdapter cardArrayAdapter;

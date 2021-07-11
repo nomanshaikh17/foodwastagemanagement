@@ -1,4 +1,4 @@
-package com.finalproject.foodwastemanagementsystem;
+package com.finalproject.foodwastemanagementsystem.model;
 
 public class guestEventCard {
     private String line1;
