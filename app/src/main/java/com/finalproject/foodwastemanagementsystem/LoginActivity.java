@@ -36,9 +36,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
-            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            //finish();
-
+            if(auth.getCurrentUser().getEmail().equalsIgnoreCase("admin@admin.com")){
+                Intent intent = new Intent(getApplicationContext(), listview.class);
+                startActivity(intent);
+            }else{
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+            }
         }
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
