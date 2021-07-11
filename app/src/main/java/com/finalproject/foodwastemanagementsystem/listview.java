@@ -3,15 +3,18 @@ package com.finalproject.foodwastemanagementsystem;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class listview extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class listview extends AppCompatActivity {
     private static final String TAG = "CardListActivity";
     private CardArrayAdapter cardArrayAdapter;
     private ListView listView;
+    private FloatingActionButton fab;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,7 @@ public class listview extends AppCompatActivity {
         setContentView(R.layout.activity_listview);
         getSupportActionBar().setTitle("Event List");
         listView = (ListView) findViewById(R.id.card_listView);
+        fab=findViewById(R.id.fab);
 
         listView.addHeaderView(new View(this));
         listView.addFooterView(new View(this));
@@ -44,6 +49,15 @@ public class listview extends AppCompatActivity {
             cardArrayAdapter.add(card);
         }
         listView.setAdapter(cardArrayAdapter);
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"action button");
+                //Toast.makeText(getApplicationContext(),"I am clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

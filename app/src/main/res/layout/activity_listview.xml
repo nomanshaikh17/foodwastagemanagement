@@ -19,7 +19,8 @@ android:background="@drawable/gradient">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:src="@drawable/profile"
+        android:src="@drawable/add_icon"
         android:contentDescription="add event"
         android:layout_margin="16dp" />
+
 </LinearLayout>
