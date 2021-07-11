@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodWasteManagementSystem">
-        <activity android:name=".GuestList"></activity>
+        <activity android:name=".AddEvent"></activity>
+        <activity android:name=".GuestList" />
         <activity android:name=".listview" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">

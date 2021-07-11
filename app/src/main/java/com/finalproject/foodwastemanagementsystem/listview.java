@@ -55,6 +55,8 @@ public class listview extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"action button");
+                Intent intent = new Intent(getApplicationContext(), AddEvent.class);
+                startActivity(intent);
                 //Toast.makeText(getApplicationContext(),"I am clicked",Toast.LENGTH_SHORT).show();
             }
         });
