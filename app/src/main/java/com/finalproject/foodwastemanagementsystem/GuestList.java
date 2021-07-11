@@ -1,12 +1,17 @@
 package com.finalproject.foodwastemanagementsystem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
 import com.finalproject.foodwastemanagementsystem.model.GuestCard;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class GuestList extends AppCompatActivity {
     private static final String TAG = "GuestListActivity";
@@ -30,5 +35,20 @@ public class GuestList extends AppCompatActivity {
         }
         listView.setAdapter(cardArrayAdapter);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.overflowmenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.LogOut) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
