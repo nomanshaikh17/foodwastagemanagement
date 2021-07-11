@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import android.view.View;
 import android.widget.Button;
@@ -122,13 +124,24 @@ public class RegisterActivity extends AppCompatActivity {
 
                     Log.d("warning_error",task.getException()+"");
                 } else {
-                    if(email.getText().toString().equalsIgnoreCase("admin@admin.com") && password.getText().toString().equals("password")){
-                        startActivity(new Intent(RegisterActivity.this, listview.class));
-                        finish();
-                    }else{
-                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                        finish();
-                    }
+
+                    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(name.getText().toString())
+                            .build();
+                    assert user != null;
+                    user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(email.getText().toString().equalsIgnoreCase("admin@admin.com") && password.getText().toString().equals("password")){
+                                startActivity(new Intent(RegisterActivity.this, listview.class));
+                                finish();
+                            }else{
+                                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                                finish();
+                            }
+                        }
+                    });
 
                 }
             }

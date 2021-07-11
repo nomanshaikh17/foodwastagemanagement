@@ -110,9 +110,12 @@ public class LoginActivity extends AppCompatActivity {
                     emailError.setErrorEnabled(true);
                 }else{
                     if(email.getText().toString().equalsIgnoreCase("admin@admin.com") && password.getText().toString().equals("password")){
+
+                        Log.d("warning_error",FirebaseAuth.getInstance().getCurrentUser().getDisplayName()+"");
                         Intent intent = new Intent(getApplicationContext(), listview.class);
                         startActivity(intent);
                     }else{
+                        Log.d("warning_error",FirebaseAuth.getInstance().getCurrentUser().getDisplayName()+"");
                         Log.d("login_check_else",email.getText().toString());
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
