@@ -14,7 +14,7 @@ public class GuestList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guest_list);
-        getSupportActionBar().setTitle("Guest List");
+        getSupportActionBar().setTitle("Food List");
         listView = (ListView) findViewById(R.id.guest_list);
 
         listView.addHeaderView(new View(this));
@@ -23,7 +23,7 @@ public class GuestList extends AppCompatActivity {
         cardArrayAdapter = new CardGuestArrayAdapter(getApplicationContext(), R.layout.guest_list_card);
 
         for (int i = 0; i < 2; i++) {
-            GuestCard card = new GuestCard("Guest Name:  Name");
+            GuestCard card = new GuestCard("Food Name:  Name","Guest Interesed 1");
             cardArrayAdapter.add(card);
         }
         listView.setAdapter(cardArrayAdapter);

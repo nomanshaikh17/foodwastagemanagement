@@ -45,7 +45,7 @@ public class listview extends AppCompatActivity {
         cardArrayAdapter = new CardArrayAdapter(getApplicationContext(), R.layout.list_item_card);
 
         for (int i = 0; i < 2; i++) {
-            Card card = new Card("Event Name:  Name", "Guest count" + (i+1),"Food Item Count");
+            Card card = new Card("Event Name:  Name","Food Item Count");
             cardArrayAdapter.add(card);
         }
         listView.setAdapter(cardArrayAdapter);

@@ -18,7 +18,6 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
 
     static class CardViewHolder {
         TextView line1;
-        TextView line2;
         TextView line3;
     }
 
@@ -51,7 +50,6 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
             row = inflater.inflate(R.layout.list_item_card, parent, false);
             viewHolder = new CardViewHolder();
             viewHolder.line1 = (TextView) row.findViewById(R.id.line1);
-            viewHolder.line2 = (TextView) row.findViewById(R.id.line2);
             viewHolder.line3 = (TextView) row.findViewById(R.id.line3);
             row.setTag(viewHolder);
         } else {
@@ -59,7 +57,6 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
         }
         Card card = getItem(position);
         viewHolder.line1.setText(card.getLine1());
-        viewHolder.line2.setText(card.getLine2());
         viewHolder.line3.setText(card.getLine3());
         return row;
     }

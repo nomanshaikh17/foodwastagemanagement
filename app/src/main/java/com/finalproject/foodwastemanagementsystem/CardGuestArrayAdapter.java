@@ -17,6 +17,7 @@ public class CardGuestArrayAdapter extends ArrayAdapter<GuestCard> {
     private List<GuestCard> cardList = new ArrayList<GuestCard>();
     static class CardViewHolder {
         TextView line1;
+        TextView line2;
     }
 
     public CardGuestArrayAdapter(Context context, int textViewResourceId) {
@@ -47,13 +48,15 @@ public class CardGuestArrayAdapter extends ArrayAdapter<GuestCard> {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.guest_list_card, parent, false);
             viewHolder = new CardGuestArrayAdapter.CardViewHolder();
-            viewHolder.line1 = (TextView) row.findViewById(R.id.guest_name);
+            viewHolder.line1 = (TextView) row.findViewById(R.id.food_name);
+            viewHolder.line2 = (TextView) row.findViewById(R.id.intereted_count);
             row.setTag(viewHolder);
         } else {
             viewHolder = (CardGuestArrayAdapter.CardViewHolder)row.getTag();
         }
         GuestCard card = getItem(position);
         viewHolder.line1.setText(card.getLine1());
+        viewHolder.line2.setText(card.getLine2());
         return row;
     }
 
