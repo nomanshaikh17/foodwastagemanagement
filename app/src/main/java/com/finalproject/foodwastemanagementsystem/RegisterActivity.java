@@ -122,8 +122,14 @@ public class RegisterActivity extends AppCompatActivity {
 
                     Log.d("warning_error",task.getException()+"");
                 } else {
-                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                    finish();
+                    if(email.getText().toString().equalsIgnoreCase("admin@admin.com") && password.getText().toString().equals("password")){
+                        startActivity(new Intent(RegisterActivity.this, listview.class));
+                        finish();
+                    }else{
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                        finish();
+                    }
+
                 }
             }
         });
